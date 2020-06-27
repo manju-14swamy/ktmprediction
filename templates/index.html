@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>KTM Prediction/Swamy</title>
+
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predicting Customer Buys or Not </h1>
+	
+	<!-- Main Input For Receiving Query to our ML -->
+	<form action="{{ url_for('predict')}}"method="post">
+            <label name="Age">Age:</label>
+            <input type="number" id="quantity" name="quantity" min="1">
+
+
+    <form action="{{ url_for('predict')}}"method="post">
+        <select name="Gender">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+         </select> 
+
+        <select name="Occupation">
+            <option value="1">Student</option>
+            <option value="2">Unemployed</option>
+            <option value="3">Professional</option>
+            <option value="4">Self Employed</option>
+        </select> 
+        <select name="Phone Type">
+            <option value="1">Low End</option>
+            <option value="2">Average</option>
+            <option value="3">High End</option>
+        </select> 
+        <select name="Current Bike">
+            <option value="1">No Bike</option>
+            <option value="2">Below 125</option>
+            <option value="3">125 to 180</option>
+            <option value="4">180 to 220</option>
+            <option value="5">220 and Above</option>
+        </select> 
+        <select name="Relationship">
+            <option value="1">Single</option>
+            <option value="2">Committed</option>
+            <option value="3">Complicated</option>
+            <option value="4">Married</option>
+        </select>
+
+    	<!-- <input type="number" name="Age" placeholder="Age" required="required" />
+    	<input type="text" name="Gender" placeholder="Gender" required="required" />
+      <input type="text" name="Occupation" placeholder="Occupation" required="required" />
+		  <input type="text" name="Phone Type" placeholder="Phone Type" required="required" />
+		  <input type="text" name="Current Bike" placeholder="Current Bike" required="required" />
+		  <input type="text" name="Relationship" placeholder="Relationship" required="required" /> -->
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
